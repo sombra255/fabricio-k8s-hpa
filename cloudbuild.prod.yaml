@@ -8,3 +8,5 @@ steps:
   name: "gcr.io/cloud-builders/go"
   args: ["build", "./src/hpa"]
   env: ["GOPATH=."]
+
+#test develop
