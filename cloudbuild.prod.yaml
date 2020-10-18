@@ -26,8 +26,8 @@ steps:
   args: 
     - '-c'
     - |
-      sed 's#img-app-deployment#gcr.io/$PROJECT_ID/go_hpa:$SHORT_SHA#g' ./k8s/app-deployment.yaml > ./k8s/app-deployment-new.yaml;
-      cat ./k8s/app-deployment-new.yaml;
+      sed 's#img-app-deployment#gcr.io/$PROJECT_ID/go_hpa:$SHORT_SHA#g' ./k8s/deployment.yaml > ./k8s/deployment-new.yaml;
+      cat ./k8s/deployment-new.yaml;
 
 # deploying k8s
 - id: Deploying k8s
@@ -35,7 +35,7 @@ steps:
   args:
     - 'apply'
     - '-f'
-    - './k8s/app-deployment-new.yaml'
+    - './k8s/deployment-new.yaml'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=my-first-cluster-1' # nome do cluster
